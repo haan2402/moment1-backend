@@ -22,7 +22,22 @@ app.get("/", (req, res) => {
 
 //routing addcourse sidan
 app.get("/addcourse", (req, res) => {
-    res.render("addcourse");
+    res.render("addcourse", {
+        error: ""
+    });
+});
+
+app.post("/addcourse", (req, res) => {
+    let coursecode = req.body.coursecode;
+    let coursename = req.body.coursename;
+    let syllabus = req.body.syllabus;
+    let progression = req.body.progression;
+
+    //gör en kontroll att alla fält fylls i till formuläret, annars returneras error och meddelande
+    if(!coursecode || !coursename || !syllabus || !progression) {
+        const error = "Alla fält måste fyllas i!";
+        return res.render("addcourse", { error }); 
+    } 
 });
 
 //routing about sidan

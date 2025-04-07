@@ -13,6 +13,11 @@
             <a href="/addcourse">Lägg till kurs</a>
             <a href="/about">Om sidan</a>
             <h1>Lägg till kurs</h1>
+
+            <% if (error) { %>
+                <p class="error"><%= error %></p>
+            <% } %>
+
             <form method="post">
                 <label for="coursecode" >Kurskod:</label>
                 <br>
