@@ -25,6 +25,9 @@
                         <p><strong>Progression: </strong><%= course.progression %></p>
                         <p><strong>Kursplan: </strong><%= course.syllabus %></p>
                         <p class="posted">Postad: <%=course.course_created %></p>
+                        <p>
+                            <a href="/delete/<%= course.id %>">Radera kurs</a>
+                        </p>
                     </article>
                 <% }); %>
            <% } %>

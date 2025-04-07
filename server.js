@@ -17,8 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //routing index sidan, och skriver ut lagrade kurser
 app.get("/", (req, res) => {
-    //Läs ut befintliga kurser
-    db.all("SELECT * FROM courses;", (err, rows) => {
+    //Läs ut befintliga kurser i fallande ordning
+    db.all("SELECT * FROM courses ORDER BY id DESC;", (err, rows) => {
         if(err) {
             console.error(err.message);
         }
@@ -52,14 +52,31 @@ app.post("/addcourse", (req, res) => {
 
     const course = db.prepare("INSERT INTO courses(coursecode, coursename, syllabus, progression)VALUES(?, ?, ?, ?)");
     course.run(coursecode, coursename, syllabus, progression);
+
+    res.redirect("/");
+
     course.finalize();
+});
+
+//för att radera kurs från lista
+app.get("/delete/:id", (req, res) => {
+    let id = req.params.id;
 });
 
 //routing about sidan
 app.get("/about", (req, res) => {
     res.render("about");
-});
 
+    //raderar kurs
+    db.run("DELETE FROM courses WHERE id=?;", id, (err) => {
+        if(err) {
+            console.error(err.message);
+        }
+
+        //tillbaka till startsidan
+        res.redirect("/");
+    });
+});
 
 
 // startar applikationen

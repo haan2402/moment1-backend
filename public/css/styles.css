@@ -108,6 +108,21 @@ article {
     text-align: left;
 }
 
+article a {
+    text-decoration: none;
+    color: black;
+    border: 1px black solid;
+    padding: 10px 20px;
+    background-color: rgb(90, 137, 180);
+    border-radius: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+article a:hover {
+    text-decoration: underline;
+}
+
 .about-container p {
     max-width: 40em;
     margin: 0 auto;
