@@ -15,9 +15,19 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//routing
+//routing index sidan
 app.get("/", (req, res) => {
     res.render("index");
+});
+
+//routing addcourse sidan
+app.get("/addcourse", (req, res) => {
+    res.render("addcourse");
+});
+
+//routing about sidan
+app.get("/about", (req, res) => {
+    res.render("about");
 });
 
 
