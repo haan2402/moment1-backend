@@ -61,21 +61,21 @@ app.post("/addcourse", (req, res) => {
 //för att radera kurs från lista
 app.get("/delete/:id", (req, res) => {
     let id = req.params.id;
+
+        //raderar kurs
+        db.run("DELETE FROM courses WHERE id=?;", id, (err) => {
+            if(err) {
+                console.error(err.message);
+            }
+    
+            //tillbaka till startsidan
+            res.redirect("/");
+        });
 });
 
 //routing about sidan
 app.get("/about", (req, res) => {
     res.render("about");
-
-    //raderar kurs
-    db.run("DELETE FROM courses WHERE id=?;", id, (err) => {
-        if(err) {
-            console.error(err.message);
-        }
-
-        //tillbaka till startsidan
-        res.redirect("/");
-    });
 });
 
 
