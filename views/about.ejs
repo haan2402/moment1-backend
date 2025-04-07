@@ -17,9 +17,22 @@
             <h1>Om sidan</h1>
             <p>Webbplatsen är byggd med Node.js paket, Express och SQLite3. På denna webbplats kan man på
                 startsidan se lista för kurser som är sparade i databasen samt radera kurs. <br> På addcourse sidan
-                kan man enkelt lägga till ny kurs via ett formulär, och denna sida är information om uppiften.</p><br>
-            <p>Databasen heter "courses" och har en tabell för id, kurskod, kursnamn, länk till kursplan och progression för kursen.
-
+                kan man enkelt lägga till ny kurs via ett formulär, och denna sida är information om uppiften.
+                </p><br>
+            <p>Databasen heter "courses" och har en tabell för id, kurskod, kursnamn, länk till kursplan och progression för kursen, samt kan man se vilket datum kursen är lagt in.
+                För att kunna skapa en server och hantera routing har jag använt mig av Node.js och Express, för att skapa en databas
+                och lagra kurser har jag använt mig av SQLite3. 
+                <br><br> Sedan med hjälp av EJS har jag skapat en sida med dynamiskt innehåll, där 
+                jag har kunnat visa kurserna i en lista samt kunnat validera. Jag har lagt in så att det kommer ett felmeddelande i formuläret
+                om inte alla fält i formuläret skulle vara ifyllt. 
+            </p><br>
+            <p>
+                Webbplatsen är responsiv för olika typer av skärmar med hjälp av CSS-kod. För att kunna uppdatera sidan under arbetets gång
+                har jag installerat nodemon som en --save-dev. Detta för att kunna uppdatera sidan för att se mina ändringar. Under arbetet har jag
+                gjort regelbundna commits till Github med tydliga commit-meddelanden.
+            </p><br>
+            <p>I denna uppgift har jag fått lära mig hur man arbetar med SQLite3 för att skapa databaser, hur man enkelt kan skapa 
+                dynamiskt innehåll för en webbplats med hjälp av Express och EJS. Samt hur man validerar sin kod och får en bättre användarupplevelse.
             </p>
         </main>
     </div>

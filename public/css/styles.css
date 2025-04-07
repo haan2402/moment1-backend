@@ -49,6 +49,7 @@ form input[type="url"] {
 
 form button {
     text-decoration: none;
+    font-size: 1em;
     color: black;
     border: 1px black solid;
     padding: 10px 20px;
@@ -126,6 +127,7 @@ article a:hover {
 .about-container p {
     max-width: 40em;
     margin: 0 auto;
+    text-align: left;
 }
 
 @media (max-width: 600px) {
