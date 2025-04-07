@@ -8,10 +8,12 @@
 </head>
 <body>
     <div class="container">
-        <main class="main-container">
-            <a href="/">Startsida</a>
-            <a href="/addcourse">Lägg till kurs</a>
-            <a href="/about">Om sidan</a>
+        <main class="addcourse-container">
+            <nav>
+                <a href="/">Startsida</a>
+                <a href="/addcourse">Lägg till kurs</a>
+                <a href="/about">Om sidan</a>
+            </nav>
             <h1>Lägg till kurs</h1>
 
             <% if (error) { %>
@@ -27,7 +29,7 @@
                 <br>
                 <input type="text" id="coursename" name="coursename">
                 <br>
-                <label for="syllabus" >Kursplan</label>
+                <label for="syllabus" >Kursplan:</label>
                 <br>
                 <input type="url" id="syllabus" name="syllabus">
                 <br>

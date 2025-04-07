@@ -10,18 +10,20 @@
 
     <div class="container">
         <main class="main-container">
+            <nav>
             <a href="/">Startsida</a>
             <a href="/addcourse">Lägg till kurs</a>
             <a href="/about">Om sidan</a>
+        </nav>
 
             <h1>Kurslista</h1>
             <% if(rows.length > 0) { %>
                 <% rows.forEach((course) => { %>
                     <article>
-                        <p><%= course.coursecode %></p>
-                        <p><%= course.coursename %></p>
-                        <p><%= course.progression %></p>
-                        <p><%= course.syllabus %></p>
+                        <p><strong>Kurskod: </strong><%= course.coursecode %></p>
+                        <p><strong>Kursnamn: </strong><%= course.coursename %></p>
+                        <p><strong>Progression: </strong><%= course.progression %></p>
+                        <p><strong>Kursplan: </strong><%= course.syllabus %></p>
                     </article>
                 <% }); %>
            <% } %>

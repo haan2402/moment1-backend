@@ -3,6 +3,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1em;
     line-height: 1.2em;
+    margin: 0;
+    padding: 0 0 30px 0;
 }
 
 .container {
@@ -10,30 +12,119 @@ body {
     margin: 0 auto;
 }
 
-.main-container {
+.main-container,
+.addcourse-container,
+.about-container{
     background-color: white;
     padding: 30px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4);
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-top: 40px;
 }
 
-a {
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+form label {
+    font-weight: bold;
+    margin-top: 5px;
+    display: block;
+}
+
+form input[type="text"],
+form input[type="url"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+form button {
     text-decoration: none;
     color: black;
     border: 1px black solid;
-    padding: 10px;
+    padding: 10px 20px;
     background-color: rgb(90, 137, 180);
     border-radius: 10px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
 }
 
-a:hover {
+form button:hover {
     text-decoration: underline;
+}
+
+nav {
+    text-align: center;
+    margin: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    border: 1px black solid;
+    padding: 10px 20px;
+    background-color: rgb(90, 137, 180);
+    border-radius: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 1.5em;
+    padding: 20px;
+    margin-top: 40px;
 }
 
 .error {
     font-weight: bold;
     color: red;
+}
+
+article {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.about-container p {
+    max-width: 40em;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .main-container {
+        padding: 10px;
+    }
+
+    nav {
+        display: block;
+    }
+
+    nav a {
+        display: block;
+        margin: 20px;
+    }
 }
