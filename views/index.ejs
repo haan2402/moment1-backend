@@ -15,10 +15,17 @@
             <a href="/about">Om sidan</a>
 
             <h1>Kurslista</h1>
-
-
+            <% if(rows.length > 0) { %>
+                <% rows.forEach((course) => { %>
+                    <article>
+                        <p><%= course.coursecode %></p>
+                        <p><%= course.coursename %></p>
+                        <p><%= course.progression %></p>
+                        <p><%= course.syllabus %></p>
+                    </article>
+                <% }); %>
+           <% } %>
         </main>
     </div>
-    
 </body>
 </html>

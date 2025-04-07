@@ -15,9 +15,19 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//routing index sidan
+//routing index sidan, och skriver ut lagrade kurser
 app.get("/", (req, res) => {
-    res.render("index");
+    //Läs ut befintliga kurser
+    db.all("SELECT * FROM courses;", (err, rows) => {
+        if(err) {
+            console.error(err.message);
+        }
+
+        res.render("index", {
+            error: "",
+            rows: rows
+        });
+    });
 });
 
 //routing addcourse sidan
@@ -27,6 +37,7 @@ app.get("/addcourse", (req, res) => {
     });
 });
 
+//skapa ny kurs via formulär
 app.post("/addcourse", (req, res) => {
     let coursecode = req.body.coursecode;
     let coursename = req.body.coursename;
@@ -38,6 +49,10 @@ app.post("/addcourse", (req, res) => {
         const error = "Alla fält måste fyllas i!";
         return res.render("addcourse", { error }); 
     } 
+
+    const course = db.prepare("INSERT INTO courses(coursecode, coursename, syllabus, progression)VALUES(?, ?, ?, ?)");
+    course.run(coursecode, coursename, syllabus, progression);
+    course.finalize();
 });
 
 //routing about sidan
